@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+:root{
+    --Dark_Grayish_Blue: hsl(234, 11%, 52%);
+    --Very_Dark_Grayish_Blue: hsl(233, 14%, 35%);
+    --Bright_Blue: hsl(220, 98%, 61%);
+    --Check_Background: linear-gradient(hsl(192, 100%, 67%) ,hsl(280, 87%, 65%));
+}
+body,.dark{
+    --body: hsl(235, 21%, 11%);
+    --secondaryColor: hsl(236, 33%, 92%);
+    --border: hsl(233, 11%, 84%);
+    --bgtodo :hsl(235, 24%, 19%);
+}
+.light{
+    --body: hsl(236, 33%, 92%);
+    --secondaryColor:hsl(235, 21%, 11%) ;
+    --border: hsl(236, 9%, 61%);
+    --bgtodo :hsl(0, 0%, 98%);
+  
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    background: var(--body);
+}
+.header {
+    background: url(./images/bg-desktop-dark.jpg) no-repeat center center / cover;
+    padding:100px 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header.dark-theme {
+    background-image: url(./images/bg-desktop-dark.jpg)
+}
+.header.light-theme {
+    background-image: url(./images/bg-desktop-light.jpg);
+}
+.header h1 {
+    font-size: 260%;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 5px;
+
+}
+.header img {
+    transition: all .3s;
+    cursor: pointer;
+}
+.header .content {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+.new-todo {   
+    margin: auto;
+    width: 600px;
+    background-color: var(--bgtodo);
+    margin-top: 70px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.new-todo input {
+    font-size: 20px;
+    padding: 10px;
+    width: 90%;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--secondaryColor);
+}
+.new-todo input[type="button"]{
+  width: 70px;
+  cursor: pointer;
+}
+.new-todo .border {
+    border: 1px solid var(--border);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.todo {
+    width:620px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: -30px;
+}
+.todo .list .element {
+    background-color: var(--bgtodo);
+    padding: 25px 10px;
+    list-style: none;
+    border-bottom: 1px solid var(--Dark_Grayish_Blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo .list .element#trueTodo span{
+    color: var(--Dark_Grayish_Blue);
+    text-decoration: line-through;
+}
+.todo .list .element:nth-child(1) {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.todo .list .element .sel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.todo .list .element span {
+    color: var(--secondaryColor);
+}
+.check {
+    border: 1px solid var(--border);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.check img {
+    display: none;
+}
+.check#trueActive {
+    background: var(--Check_Background);
+}
+.check#trueActive img {
+    display: flex;
+}
+.del {
+    cursor: pointer;
+    display: none;
+}
+
+.todo .list li:hover  .del{
+    display: block;
+}
+.navigation {
+    
+    background-color: var(--bgtodo);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10px;
+    color: var(--Dark_Grayish_Blue);
+}
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 7px;
+}
+.navigation ul li {
+    cursor: pointer;
+}
+.navigation ul li:hover ,.clear:hover {
+    color:var(--secondaryColor) ;
+    transition: all .3s;
+}
+.navigation ul li.active {
+    color: var(--Bright_Blue);
+}
+.clear {
+    cursor: pointer;
+}
+@media screen and (max-width:1000px){
+    .header {
+        padding: 60px;
+        padding-bottom: 70px;    
+    }
+    
+}
+@media screen and (max-width:800px) {
+    .header {
+        padding: 70px 0;  
+    }
+    .new-todo  ,.header .content{
+        width: 90%;
+        padding:10px 0;
+    }
+    .new-todo .border {
+        margin-left:10px ;
+    }
+    .new-todo input {
+        padding: 15px 10px;
+        width: auto;
+    }
+    .todo {
+        width: 90%;
+        
+    }
+    .del {
+        display: flex;
+    }
+
+    .navigation ul {
+        position: absolute;
+        width: 90%;
+        justify-content: space-around; 
+        background-color: var(--bgtodo);
+        margin-top: 160px;
+        padding: 25px 0;
+        border-radius: 5px;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+}

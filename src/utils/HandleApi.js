@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const basUrl = "https://todoserver-h3h6.onrender.com"
+const basUrl = "https://todoserver-nmjh.onrender.com"
 
 const getAllToDo = (setTodo)=> {
     axios
